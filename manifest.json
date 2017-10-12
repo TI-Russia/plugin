@@ -1,0 +1,17 @@
+{
+   "background": {
+      "scripts": [ "background.js" ]
+   },
+   "browser_action": {
+      "default_icon": "favicon.ico"
+   },
+   "content_scripts": [ {
+      "js": [ "jquery-1.11.3.min.js", "content.js" ],
+      "matches": [ "http://declarator.org/document/*/section_add/*" ]
+   } ],
+   "description": "Автоматизированная подстановка данных в форму декларации",
+   "manifest_version": 2,
+   "name": "Декларатор - заполнялка",
+   "permissions": [ "activeTab" ],
+   "version": "1.0"
+}
