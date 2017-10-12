@@ -356,6 +356,11 @@ function chooseRealtyType() {
   var selectCssSelector = "select#id_realestates-" + currentOverallRealty + "-type";
   var optionCssSelector = "option[value='" + realtyTypeMapping[selectedRealty.find('objectType').text()] + "'";
   $(selectCssSelector + " > " + optionCssSelector).attr('selected', 'selected');
+  setTimeout(chooseRealtyName, delay);
+}
+
+function chooseRealtyName() {
+  $('#id_realestates-' + currentOverallRealty + '-name').val(selectedRealty.find('realtyName').text());
   setTimeout(chooseOwnershipType, delay);
 }
 
