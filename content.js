@@ -160,6 +160,17 @@ function readXmlFile(xmlText) {
     $('#selectPersonContainer').show();
   });
 
+  /**
+   * TODO Не хватает атрибута на кнопке добавления нового человека
+   */
+  $('#new-person-button').attr('onclick', "ShowBlocks('main', 'toggle')");
+  /**
+   * TODO Не было активации на кнопке, для показа списка фамилий из XML
+   */
+  $('#new-person-button').click(function (e) {
+    $('#selectPersonContainer').show();
+  });
+
   $('#selectPersonForm').submit(function (e) {
     e.preventDefault();
     $('#selectPersonContainer').hide();
@@ -199,6 +210,14 @@ function fillData() {
     relationType = 0;
   }
   if (selectedPerson.find('income').attr('xsi:nil') !== 'true') {
+
+    /**
+     * TODO Принудительно убираю блокировку
+     */
+    if ($('#id_add_incomes_button').attr('disabled')) {
+      $('#id_add_incomes_button').removeAttr('disabled');
+    }
+
     $('#id_add_incomes_button').click();
     setTimeout(chooseRelationTypeIncome, delay);
   }
